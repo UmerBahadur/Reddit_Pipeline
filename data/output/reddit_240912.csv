@@ -1,0 +1,218 @@
+id,title,score,num_comments,author,created_utc,url,over_18,upvote_ratio,edited,spoiler,selftext,stickied
+1fegi44,Do you agree!? 😀,632,58,ithoughtful,2024-09-11 17:52:47,https://i.redd.it/anr0zlslx7od1.png,False,0.91,False,False,,False
+1febwqg,PSA: XML is probably garbage,289,59,Thinker_Assignment,2024-09-11 14:45:07,https://i.redd.it/ifj6o0g107od1.png,False,0.96,False,False,,False
+1fefngd,From r/dataengineering to Airbyte 1.0: How Your Feedback and Review Helped our Path,45,12,marcos_airbyte,2024-09-11 17:17:45,https://www.reddit.com/r/dataengineering/comments/1fefngd/from_rdataengineering_to_airbyte_10_how_your/,False,0.96,False,False,"As we gear up for the release of [Airbyte 1.0](https://airbyte.com/v1) on September 24th, it’s clear that much of what we’ve built has been shaped by the feedback we got from [](https://www.reddit.com/r/dataengineering/). We’ve been listening closely, especially to the constructive criticism from this community, and we know it hasn’t always been easy. But that’s what makes this subreddit so invaluable – you don’t hold back, and therefore we can get deeper on what matters. So we’ll always be super thankful to you for that!
+
+We wanted to take a moment to acknowledge the areas where you’ve helped us improve and share how Airbyte 1.0 addresses some of the biggest concerns. Honestly, it’s been a learning process, and we’re still learning. Your feedback keeps pushing us to do better, and we want to keep that dialogue going as we move forward.
+
+To dive deeper into your feedback, I even pulled together a little pipeline project using Airbyte to analyze 2024 Reddit data. It gave me a good look at the most common pain points brought up in this community. (Side note: ever try getting Reddit historical data? Thanks, Pushshift dumps! Happy to share the project details if anyone’s interested.)
+
+Now, let’s look at what you’ve told us and how we’re trying to address it:
+
+**Performance Issues**
+
+We heard you loud and clear – performance needs to be better. We’ve focused a lot on reliability in the past 6 months and Airbyte 1.0 should be a great step up! Building a solid foundation took time, but now we’ve ramped up a dedicated team to tackle speed and optimization across connectors. [As an simple example, we switched from ](https://github.com/airbytehq/airbyte/pull/44444)json[ lib to ](https://github.com/airbytehq/airbyte/pull/44444)orjon[ , which sped up the serialization of API Sources records by 1.8x](https://github.com/airbytehq/airbyte/pull/44444). The actual sync speed will depend on the API limits and the destination you choose. But our goal here is that Airbyte will soon no longer be a **bottleneck** on the sync speed. Database sources should sync at 15MB/s and API sources at 8MB/s theoretically now, and we'll keep pushing for more on both and for destinations too.
+
+**Bugs and Stability Problems**
+
+Unstable syncs were a real pain, and we knew it. In the last few months, we’ve refactored the [Airbyte Worker](https://airbyte.com/blog/introducing-workloads-how-airbyte-1-0-orchestrates-data-movement-jobs), leading to more reliable syncs and fewer issues like stuck processes. We’ve also released [resumable full refreshes](https://airbyte.com/blog/resumable-full-refresh-building-resilient-systems-for-syncing-data), [refreshes](https://airbyte.com/blog/introducing-refreshes-reimport-historical-data-with-zero-downtime), [checkpointing](https://airbyte.com/blog/checkpointing), no stuck syncs, automatic detection of dropped records (both of which are part of 1.0). 
+
+**Deployment and Operations**
+
+One other thing we did was to invest heavily in our Helm Chart and revamp the [deploy instructions](https://docs.airbyte.com/deploying-airbyte/) to make new installations and upgrades smoother and more controlled. Stability has been a top priority for us and was a key criteria to reach 1.0. 
+
+**Complexity and Overhead**
+
+Airbyte is designed to support large data pipelines. If your company has 1,000 connections, the platform can handle that with some fine-tuning. However, we understand that not all projects operate on such a scale. Using Airbyte for smaller projects might feel like using a sledgehammer to crack a nut. For this reason the team decided to release PyAirbyte and abctl.
+
+* [PyAirbyte](https://docs.airbyte.com/using-airbyte/pyairbyte/getting-started) allows you to run Airbyte connectors without the need to host the platform and have all pipelines as code.
+* [abctl](https://docs.airbyte.com/using-airbyte/getting-started/oss-quickstart) deploys an easy-quick server of Airbyte to single-server instances with the advantage of easily migrating to a Kubernetes cluster and having more control over the data pipeline resources.
+
+These tools reduce overhead and make it easier for engineers to manage Airbyte deployments.
+
+**Connector Quality**
+
+Maintaining a large connector catalog isn't easy (remember the struggles with Singer taps?), and we’re constantly thinking about how to improve. Some projects the team released and showed a good path to the resolution is:
+
+* Low Code / No-Code framework: using the right abstraction makes maintenance much simpler. Having standard components and the option to customize them provide the right trade off to keep maintenance simple for the Airbyte catalog. Today, all of our connectors in the marketplace were migrated to the low-code framework.
+* Connector Builder: Enabling anyone to build connectors is also a huge help for teams looking to hand off tasks to less experienced developers.
+* AI Builder: The feedback and adoption of Connector Builder was impressive. For that reason we dedicated more time to improve even more the experience to speed up the process to build a long-tail connector. This is coming with Airbyte 1.0 - [airbyte.com/v1](http://airbyte.com/v1) 
+* Marketplace: Now you can create or edit a connector directly in the UI and submit the change to the GitHub repository without leaving the UI. This makes it simple to fix or add features to connectors that were not previously imagined. Also coming with Airbyte 1.0!
+
+**Lack of Features and Enterprise Readiness**
+
+We know some of you have been waiting for enterprise features like RBAC, SSO, multiple workspaces, advanced observability, advanced data residency, mapping (PII masking, etc.) and more. These are now available, though they require an enterprise plan. We’re constantly adding new capabilities, so if you’re curious, check out the latest [here](https://docs.airbyte.com/enterprise-setup/).
+
+— 
+
+This community has been an essential part of our journey, and we’re excited to keep building with you. If you have more feedback or ideas for how we can improve, we’re all ears! We’re launching [Airbyte 1.0](http://airbyte.com/v1) on September 24th, and the team is planning an AMA here on September 25th, so let’s chat, share ideas, and figure out how we can make Airbyte work even better for everyone.
+
+Thanks again for being part of this journey! We couldn’t have gotten here without you, and we’re just getting started.",False
+1fepwd9,What is Role of ChatGPT in Data engineering for you ,34,63,Jaapuchkeaa,2024-09-12 00:42:35,https://www.reddit.com/r/dataengineering/comments/1fepwd9/what_is_role_of_chatgpt_in_data_engineering_for/,False,0.77,False,False,"I specifically want to ask senior DE's because me personally, 80% of my day-to-day work is done by writting prompt, sometimes i even think am i a data engineer or a prompt engineer. Am i a noob or many DE's use GPT that often? ",False
+1fem3ki,How can you spot a noob at DE? ,26,31,Bavender-Lrown,2024-09-11 21:46:14,https://www.reddit.com/r/dataengineering/comments/1fem3ki/how_can_you_spot_a_noob_at_de/,False,0.75,False,False,"I'm a noob myself and I a want to know the practices I should avoid, or implement, to improve at my job and reduce the learning curve ",False
+1fe81nv,"Is delta table suitable for storing text data, like sentences ?",11,18,chaachans,2024-09-11 11:43:22,https://www.reddit.com/r/dataengineering/comments/1fe81nv/is_delta_table_suitable_for_storing_text_data/,False,0.84,False,False,Same as title ,False
+1fe77ju,Airflow with Celery for Load Distribution,14,3,ronaldo7goat2000,2024-09-11 10:53:24,https://www.reddit.com/r/dataengineering/comments/1fe77ju/airflow_with_celery_for_load_distribution/,False,1.0,False,False,"I've got a pipeline that takes userids from a data base. 
+
+Then distributes user IDs to multiple airflow groups, each group has a feature engineering and modelling tasks. 
+
+Feature engineering and modeling are quite expensive.
+
+Which is why I'm using groups, to distribute user IDs  onto different celery workers. So they run in parallel. 
+
+Example, you might have 100 users - 5 groups in a dag. Each group has a raw data aggregation and feature extraction and modelling task. Current flow will send 20 users to each group.
+
+I've also used docker to contain everything 
+
+I know this is brief but, I don't want to get into too much details with company ip.
+
+But is this a valid use case for airflow and celery?",False
+1fe9fda,Confluent Acquires WarpStream,10,2,hkdelay,2024-09-11 12:55:40,https://hubertdulay.substack.com/p/confluent-acquires-warpstream,False,0.76,False,False,,False
+1fewbm0,I made a tool to ingest data from Kafka into any DWH,9,3,karakanb,2024-09-12 06:53:20,https://v.redd.it/5k149wmqsbod1,False,0.85,False,False,,False
+1fewm3d,What is the exam experience for Databricks like?,3,4,SolitaireKid,2024-09-12 07:14:41,https://www.reddit.com/r/dataengineering/comments/1fewm3d/what_is_the_exam_experience_for_databricks_like/,False,0.81,False,False,"Ive done Microsoft exams before from Pearson. They have been alright at times and downright exhausting at others. But I've gotten used to them. You check into the exam, show them your room, keep your phone and watch away and start the exam. 
+
+As long as you dont move too much, they leave you alone for the most part. 
+
+Databricks has this platform called Webassessor and I wanted to understand what people's experiences have been if you've done the exam before? 
+
+Are they anal about anything? Is there anything I can do to make my testing experience hassle free?
+
+I'm planning to do the Spark developer exam btw.",False
+1felytx,pipefunc: Build Scalable Data Pipelines with Minimal Boilerplate in Python,2,1,basnijholt,2024-09-11 21:40:31,https://github.com/pipefunc/pipefunc,False,0.67,False,False,,False
+1fee9p8,Weather Data Ingestion,3,2,heightskid51,2024-09-11 16:21:58,https://www.reddit.com/r/dataengineering/comments/1fee9p8/weather_data_ingestion/,False,0.8,False,False,"I am working on a project where the data scientists want to use location-based weather data for their modeling. I have been tasked with ingesting potentially either daily or hourly data.
+
+I am looking at a couple of different sources for this data:
+[Noaa](https://www.ncei.noaa.gov/cdo-web/webservices/v2#gettingStarted)
+[OpenWeather](https://openweathermap.org/api)
+
+I am wondering if folks here are using any different sources, if either of these api's regularly, if they are paying for openweather and think it is worth it, and if the airbyte connection easily hits the openweather call limit into pricing.",False
+1febsp6,Continuous Syncing or Migration from HMS to AWS Glue Catalog,3,1,Careful-Accountant79,2024-09-11 14:40:29,https://www.reddit.com/r/dataengineering/comments/1febsp6/continuous_syncing_or_migration_from_hms_to_aws/,False,0.81,False,False,"I've been researching how to migrate from HMS(Cloudera) to AWS Glue Catalog. I can't find any source, anyone can help me? ",False
+1feyhp8,I was asked to create config file for dbt cloud using fluff rules for the dbt cloud. newbie to data engineering. No idea how to do this. please help with any guidelines. ,2,0,Outside_Aide_1958,2024-09-12 09:36:36,https://www.reddit.com/r/dataengineering/comments/1feyhp8/i_was_asked_to_create_config_file_for_dbt_cloud/,False,1.0,False,False,I understand the idea is to format the coding practices and set rules for coding in dbt? ,False
+1fevts6,Job Advice,2,2,wixia_lover,2024-09-12 06:18:00,https://www.reddit.com/r/dataengineering/comments/1fevts6/job_advice/,False,1.0,False,False,"Hiya!
+
+Long time reader, first time poster. I'm hoping you folx can offer some advice. I work as an ETL Developer using Talend and SQL Server databases hosted in Azure. As it turns out I'm half decent at doing my job, I got asked how I would want my role to develop and my future job title. So was hoping to say: I want to do X, and you lovely people would also say consider Y.
+
+So I want to be able to do everything from:
+(1)finding and mapping the data sources, 
+(2)building and maintaining data models, 
+(3)to the actual ETL and delivery to the analysts.
+
+I also want to cover a bit of the backend administration of our pipelines including managing the code repo and being aware of user access so I don't accidentally undermine our rules.
+
+To me, that job sounds like a Data Engineer. Is that an accurate job title? And what would you say would also be worthwhile to include in the role, even if it is just being aware of it and not actually doing the task?",False
+1fevb3r,Feedback on a library I'm developing to work with relative times?,2,0,DuckDatum,2024-09-12 05:43:04,https://www.reddit.com/r/dataengineering/comments/1fevb3r/feedback_on_a_library_im_developing_to_work_with/,False,0.76,False,False,"Hello,
+
+I'm developing a library for working with relative dates. The library basically provides an abstraction to lazily define a point in time relative to some other time. Examples below. I built this because I had a specialized need with an app I'm building to dynamically fill calendars with events based on some rules.
+
+It works be allowing you to index time segments, and it evaluates to an actual datetime object when passed a baseline datetime object.
+
+I'm curious how others may find use out of a library like this. I'd be happy to implement features that the community would find use of. I'd also appreciate feedback and thoughts.
+
+Repo: [https://github.com/MrChadMWood/pyinterval](https://github.com/MrChadMWood/pyinterval)
+
+  
+Some example usage:
+
+```
+from pyinterval import Expression
+import datetime
+
+today = someday = datetime.datetime.now()
+
+# Get the current week, Monday 
+this_monday_exp = Expression(today).week.day[0]
+this_monday_exp()
+
+# Get a weekday dynamically
+exp = Expression()
+some_monday_exp = exp.week.day[0]
+some_monday = some_monday_exp(someday)
+
+# Add some time
+some_monday + exp.decade(n=1)
+
+# Subtract some time
+some_monday - exp.centisecond(n=20)
+
+# Get more granular
+more_granular_exp = exp.day.hour[-4].second[573].millisecond[-12].microsecond[5]
+more_granular_time = more_granular_exp(some_monday)
+```",False
+1fereey,Should sql queries take date range or single date ? What are the best practices?,2,4,Interesting-Hyena851,2024-09-12 01:57:58,https://www.reddit.com/r/dataengineering/comments/1fereey/should_sql_queries_take_date_range_or_single_date/,False,0.67,False,False,"I have a databricks workflow with SQL queries in notebooks. Currently it takes single date for filtering.
+
+There’s a usecase to accept date range and trigger the workflow for each date within date range.
+
+I’m trying to figure out how to trigger the workflow for each date. Meanwhile, I also got a suggestion that modifying the SQL queries itself to have date range will be flexible in future.
+
+Has someone experienced such usecase or any suggestions?",False
+1fek5ul,"ETL process, what's better?",2,11,Sufficient-Buy-2270,2024-09-11 20:23:47,https://www.reddit.com/r/dataengineering/comments/1fek5ul/etl_process_whats_better/,False,0.67,False,False,"For context, not a data engineer, I'm an analyst trying to learn the ropes by doing. Anyway I've been using Azure to get data from Excel SharePoint workbooks.My company is heavily reliant on Excel sheets and I've figured out how to take data from a spreadsheet and upload it to BigQuery so I can connect it with all the other juicy data.
+
+After I've pulled it, the data's a mess. Financial data, Mixed case names and everything. I could do with calculating another 2 or 3 columns for use later in. I'm thinking I have a few options:
+
+1: Clean and convert everything in Python before pushing it to BQ
+2: Push the data straight to BQ and create a view with a query that cleans it all etc.
+3: Push data to BQ and create a new table with a scheduled query so I can clean, transform data types and create new columns.
+
+Are all approaches valid or is there going to be a pecking order?
+
+Edit: There's probably about 25-30 separate spreadsheets that I am aware of that could use being pulled into a centralised location for analysis, all very similar ways of working.",False
+1fecn84,The 2024 State of PostgreSQL Survey is now open - please take a moment to fill it out if you're using Postgres as your database of choice!,2,0,xenophenes,2024-09-11 15:15:36,https://www.timescale.com/blog/the-2024-state-of-postgresql-survey-is-now-open/,False,0.67,False,False,,False
+1fey62o,Best way to learn advanced SQL optimisation techniques?,3,3,alex-acl,2024-09-12 09:12:11,https://www.reddit.com/r/dataengineering/comments/1fey62o/best_way_to_learn_advanced_sql_optimisation/,False,1.0,False,False,"I am a DE with 4 y/o. I have been writing a lot of SQL queries but I am still lacking advanced techniques for optimization. I have seen that many jobs ask for SQL optimization so I would love to get my hands on that and learn the best ways to structure queries to improve performance.
+
+  
+Are there any recommended books or courses that help you with that?",False
+1feh00c,Tips for setting up dataops practices when you're trapped by access/security?,1,1,youre_so_enbious,2024-09-11 18:12:52,https://www.reddit.com/r/dataengineering/comments/1feh00c/tips_for_setting_up_dataops_practices_when_youre/,False,0.67,False,False,"Hi, I'm a data scientist trying to help out the data engineer within my department of a large enterprise. Currently the DE is very manual (only daily jobs are automated, monthly ones ran by hand). No version control etc etc
+
+I'm trying to get GitHub set up to work with snowflake, so we can start version controlling our stored procs, and have a centralised place to work from. However we can't seem to make much progress before we find that we haven't got sufficient permissions to connect/integrate tools. Any tips on how to overcome this apart from just submitting IT tickets to get the access? (Was thinking possibly creating a separate workspace for trialling tools before we decide what set up we want/need?)",False
+1feafy5,Creating ADLS based external table in Azure SQL Database,1,0,telugubidda,2024-09-11 13:42:56,https://www.reddit.com/r/dataengineering/comments/1feafy5/creating_adls_based_external_table_in_azure_sql/,False,0.67,False,False,"(already posted this in r/Azure and stackoverflow)
+
+I have a requirement where I have to create an External table from data in ADLS, in Azure SQL DB.
+
+I tried to use this configuration to create data source in SSMS:
+
+    CREATE EXTERNAL DATA SOURCE [myadlssource]
+    WITH (
+        TYPE = BLOB_STORAGE,
+        LOCATION = N'adls://<path>',
+        CREDENTIAL = <credential>
+    );
+
+I am getting this error message when I tried to CREATE External table: 
+
+`External tables are not supported with the provided data source type.`
+
+I tried using `TYPE = HADOOP`, but came to know it is not supported.
+
+Is there a way to create external tables using ADLS as source? My requirement is Databricks writes to ADLS and I need to create a table on top of this ADLS which will be used by AAS and subsequently PowerBI reports.
+
+What are my options here? Earlier we were using Synapse, but we are trying to implement the solution with SQL Database.",False
+1fejqlo,How to automate database change management using GitHub + Liquibase (Live on Thur. Sept. 26 @ 11am CT),0,0,liquibase,2024-09-11 20:06:06,https://www.reddit.com/r/dataengineering/comments/1fejqlo/how_to_automate_database_change_management_using/,False,0.5,False,False,"We see how database, DevOps, DataOps, and developer worlds are converging at some of the most innovative and quickly growing organizations in the world. And there’s no need to keep secret how they integrate more frequent database deployments into the rest of their automated CI/CD pipelines. 
+
+With GitHub Actions and Liquibase, you can easily and quickly automate your database change management workflow. It’s so easy, in fact, that we can walk you through it live in about 45 minutes. Plus, you can ask questions directly to presenter Adam Murray, Sr. Product Manager for Developer Experience at Liquibase. 
+
+If you use GitHub Actions in your existing CI/CD pipeline, join us to learn how to integrate database schema migrations. Adam will walk through how to:
+
+* Run basic and advanced database automation commands with GitHub Actions
+* Create an automated database change workflow using Liquibase
+* Embrace best practices for both platforms
+
+This session helps you extend DevOps to database deployments so you can:
+
+🔎 Find failures faster
+
+⏱️ Reduce time to remediation
+
+🚀 Minimize downtime in production
+
+Join us:
+
+📅 Thursday, September 26th | 🕒 11:00 AM CT
+
+🔗 [Register](https://www.liquibase.com/videos/using-liquibase-and-github-actions-to-automate-your-database-changes)",False
+1fegi9v,Need relevant datasets,0,5,courage_thedawg,2024-09-11 17:52:57,https://www.reddit.com/r/dataengineering/comments/1fegi9v/need_relevant_datasets/,False,0.5,False,False,"
+I need to analyse the global e-commerce trends and their impact on traditional retail. I need some relevant datasets but no luck. Can someone recommend any?",False
+1fev37o,FAANG Data Engineering,0,6,JazzlikeSnow947,2024-09-12 05:28:06,https://www.reddit.com/r/dataengineering/comments/1fev37o/faang_data_engineering/,False,0.44,False,False,"YOE: 1
+Skills: Python, Pyspark, Hive, Hadoop, Kafka, MYSql, Mssql
+Leetcode 200+ questions solved
+How should I prepare for a FAANG data engineering Job",False
+1fedob3,Databricks vs Snowflake: Choosing Your Data Powerhouse in 2024,0,1,TenMatrix,2024-09-11 15:57:58,https://www.definite.app/blog/databricks-vs-snowflake,False,0.29,False,False,,False
+1fekow4,9 social media insights from my recent global hack-a-thon!,0,0,JParkerRogers,2024-09-11 20:45:59,https://www.reddit.com/gallery/1fekow4,False,0.31,False,False,,False
